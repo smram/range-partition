@@ -7,9 +7,6 @@ import java.util.Arrays;
  *
  * @param <T>
  */
-
-//Given a choice, I would NOT write binary or interpolation search code 
-//from scratch, its tricky
 public class RangePartition<T extends Comparable<T>> {
 
 	//enum SearchAlgo { CUSTOM, JAVA, INTERPOLATION };
@@ -27,7 +24,9 @@ public class RangePartition<T extends Comparable<T>> {
 	}
 	
 	/**
-	 * Does a classic binary search on the pivots
+	 * Does a classic binary search on the pivots. 
+	 * See {@link JavaRangePartition} for an impl that uses Java's built-in 
+	 * binary search
 	 * 
 	 * @return \in [0,numPivots] - the index of range into which the searchKey 
 	 * falls, using right-closed ranges e.g.
@@ -96,10 +95,10 @@ class JavaRangePartition<T extends Comparable<T>> extends RangePartition<T> {
 
 /**
  * Interpolation search - fewer comparisons than binary search when search 
- * space is uniform random distributed
+ * space is uniform random distributed. This class is a reference implementation
+ * for integer keys
  * 
  * @author smram
- *
  */
 // Given a choice, I wouldn't write this search code from scratch, its tricky. 
 // This is practice.
@@ -111,8 +110,8 @@ class InterpolationRangePartition extends RangePartition<Integer> {
 	}
 
 	/**
-	 * To do interpolation search you need values to be numerical 
-	 * (max, min, max-min), not just notion of ranks. 
+	 * To do interpolation search you need values to be numerical with a notion
+	 * of max, min, and difference. Not just notion of ranks. 
 	 * @param searchKey
 	 * @return index of the range that searchKey falls into
 	 */
