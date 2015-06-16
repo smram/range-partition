@@ -2,7 +2,6 @@ package org.smram.stats;
 
 /**
  * Running Statistics for long objects.
- * I could just make it more general by making it double objects.
  * 
  * This class is not thread-safe because the update() method is not synchronized
  * 
@@ -10,7 +9,7 @@ package org.smram.stats;
  * @author smram
  */
 public class LongSummaryStats {
-	public final static double FP_COMPARE_EPSILON = 1e-6;
+	//public final static double FP_COMPARE_EPSILON = 1e-6;
 	
 	private long num;
 	private double mean;
@@ -88,6 +87,7 @@ public class LongSummaryStats {
 	public void clear() {
 		num = 0;
 		mean = 0;
+		moment2 = 0;
 		max = Long.MIN_VALUE;
 		min = Long.MAX_VALUE;	
 	}
